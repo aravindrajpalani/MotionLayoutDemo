@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MotionScene xmlns:android="http://schemas.android.com/apk/res/android"
+             xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:motion="http://schemas.android.com/tools">
+
+    <Transition
+            app:constraintSetEnd="@id/collapsed"
+            motion:duration="100"
+            motion:interpolator="easeInOut"
+            app:constraintSetStart="@id/expanded">
+
+        <OnSwipe
+                app:dragDirection="dragUp"
+                app:maxAcceleration="100"
+                app:touchAnchorId="@id/allSongsListView"
+                app:touchAnchorSide="top"/>
+        <KeyFrameSet>
+            <KeyPosition
+                    motion:keyPositionType="deltaRelative"
+                    motion:pathMotionArc="none"
+                    motion:percentY="100"
+                    motion:percentX="100"
+                    motion:framePosition="50"
+                    motion:target="@id/title"/>
+        </KeyFrameSet>
+    </Transition>
+
+    <ConstraintSet android:id="@+id/expanded">
+        <Constraint
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                app:srcCompat="@drawable/ic_play_white"
+                android:id="@id/floatingActionButton"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                app:layout_constraintHorizontal_bias="0.905"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/title"
+                app:layout_constraintBottom_toTopOf="@+id/allSongsListView"
+        />
+        <Constraint
+                android:id="@id/allSongsListView"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:clipToPadding="false"
+                android:overScrollMode="never"
+                android:background="@color/white_fb"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginTop="50dp"
+                app:layout_constraintTop_toBottomOf="@+id/title"/>
+
+        <Constraint
+                android:id="@id/backBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="?attr/actionBarSize"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:paddingTop="16dp"
+                android:paddingBottom="16dp"
+                android:src="@drawable/ic_arrow_left_black"
+
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
+
+        <Constraint
+                android:id="@id/title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Album Name"
+                android:textColor="@color/black_4a"
+                android:textAppearance="@style/Base.TextAppearance.Widget.AppCompat.Toolbar.Title"
+                android:textSize="@dimen/sp_28"
+                android:lines="1"
+                app:pathMotionArc="startHorizontal"
+                android:gravity="center"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/albumThumbnailImg"
+                app:layout_constraintBottom_toTopOf="@id/allSongsListView"
+                android:layout_marginBottom="8dp"
+                android:layout_marginTop="16dp" app:layout_constraintVertical_bias="0.0"/>
+        <Constraint
+                android:id="@id/albumThumbnailImg"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:src="@drawable/ic_guitar"
+                app:pathMotionArc="startVertical"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintVertical_bias="0.14999998"/>
+
+
+    </ConstraintSet>
+
+    <ConstraintSet android:id="@+id/collapsed">
+        <Constraint
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                app:srcCompat="@drawable/ic_play_white"
+                android:id="@id/floatingActionButton"
+                android:layout_marginEnd="8dp"
+                android:elevation="0dp"
+                android:layout_marginStart="8dp"
+                app:layout_constraintHorizontal_bias="0.905"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/title"
+                app:layout_constraintBottom_toBottomOf="parent"
+        />
+        <Constraint
+                android:id="@id/allSongsListView"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:clipToPadding="false"
+                android:overScrollMode="never"
+
+                android:background="@color/white_fb"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginTop="12dp"
+                app:layout_constraintTop_toBottomOf="@+id/title"/>
+
+        <Constraint
+                android:id="@id/backBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="?attr/actionBarSize"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:paddingTop="16dp"
+                android:paddingBottom="16dp"
+                android:src="@drawable/ic_arrow_left_black"
+                android:elevation="@dimen/dp_8"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
+
+        <Constraint
+                android:id="@id/title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Album "
+                android:scaleY="0.7"
+                android:scaleX="0.7"
+                android:textColor="@color/black_4a"
+                android:textAppearance="@style/Base.TextAppearance.Widget.AppCompat.Toolbar.Title"
+                android:textSize="@dimen/sp_28"
+
+                android:lines="1"
+                android:elevation="@dimen/dp_8"
+                app:layout_constraintHorizontal_bias="0.0"
+                android:gravity="start|center_vertical"
+                app:layout_constraintTop_toTopOf="@id/albumThumbnailImg"
+                app:layout_constraintStart_toEndOf="@id/albumThumbnailImg"
+                app:layout_constraintBottom_toBottomOf="@id/albumThumbnailImg"
+                android:layout_marginStart="2dp"/>
+        <Constraint
+                android:id="@id/albumThumbnailImg"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/ic_guitar"
+                app:layout_constraintTop_toTopOf="@id/backBtn"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/backBtn"
+                app:layout_constraintBottom_toBottomOf="@id/backBtn"
+                app:layout_constraintHorizontal_bias="0.0"
+                android:layout_marginStart="8dp"/>
+    </ConstraintSet>
+
+</MotionScene>
